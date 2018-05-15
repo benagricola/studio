@@ -30,13 +30,11 @@ fi
 # Run studio
 #
 
-nixopts="--pure -j 10"
+nixopts="-j 10"
 
 runstudio() {
   attr="$1"
   cmd="$2"
-  export TMPDIR=$(mktemp -d)
-  trap "rm -rf $TMPDIR" EXIT
   nix-shell $nixopts --run "STUDIO_PATH=$studio $cmd" -E - <<EOF
     with import $studio;
     runCommandNoCC "studio" {
