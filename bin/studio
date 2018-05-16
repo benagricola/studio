@@ -50,11 +50,14 @@ case "$1" in
     x11)
         runstudio studio.studio-x11 studio-x11
         ;;
+    build)
+        runstudio studio studio
+        ;;
     test)
         runstudio studio.studio-test studio-test
         ;;
     *)
-        error "Usage: studio <vnc|x11|test>"
+        error "Usage: studio <vnc|x11|build|test>"
         ;;
 esac
 
